@@ -1,0 +1,127 @@
+.our-products {
+    padding: 80px 0 180px;
+    @include mq('tablet-850') {
+        padding: 30px 0 60px;
+    }
+}
+
+.our-products__wrapper {
+    //display: flex;
+    //align-items: center;
+    //flex-direction: column;
+    max-width: calc(1510px + 90px);
+    padding: 0 40px;
+    @include mq('tablet-1015') {
+        padding: 0 24px
+    }
+}
+
+.our-products__head {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.our-products__title {
+    position: relative;
+    @include font(7.8rem, 125%, $color-primary, 700);
+    margin: 9px;
+    @include mq('tablet-1015') {
+        @include font(4.8rem);
+    }
+    @include mq('tablet-850') {
+        margin-bottom: 36px;
+        @include font(3.6rem);
+        text-align: center;
+    }
+    @include mq('mobile-500') {
+        max-width: 210px;
+    }
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        display: block;
+        width: 80px;
+        height: 6.8px;
+        background-image: url("../../src/assets/images/baltika/wave-line-hor-i.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        //animation: mover 3s ease-in-out infinite forwards 3s;
+    }
+
+    &:before {
+        left: calc(-40px - 80px);
+        @include mq('tablet-760') {
+            display: none;
+        }
+    }
+
+    &:after {
+        right: calc(-40px - 80px);
+        @include mq('tablet-760') {
+            top: unset;
+            right: 50%;
+            translate: 50% 0;
+            bottom: -19px;
+        }
+    }
+}
+
+//@keyframes mover {
+//    0% {
+//        translate: 0 -50%;
+//    }
+//    25% {
+//        translate: -10px -50%;
+//    }
+//    50% {
+//        translate: 10px -50%;
+//    }
+//    100% {
+//        translate: -10 -50%;
+//    }
+//}
+
+//
+//@keyframes tilt-n-move-shaking {
+//    0% {
+//        transform: translate(0, 0) rotate(0deg);
+//    }
+//    12% {
+//        transform: translate(10px, 10px) rotate(5deg);
+//    }
+//    25% {
+//        transform: translate(0, 0) rotate(0eg);
+//    }
+//    37% {
+//        transform: translate(-10px, 10px) rotate(-5deg);
+//    }
+//    50% {
+//        transform: translate(0, 0) rotate(0deg);
+//    }
+//}
+
+.our-products__subtitle {
+    max-width: 700px;
+    @include font(2.8rem, 132%, $color-primary);
+    text-align: center;
+    margin-bottom: 98px;
+    @include mq('tablet-1015') {
+        @include font(2.4rem);
+        margin-bottom: 40px;
+    }
+    @include mq('tablet-850') {
+        @include font(1.6rem);
+    }
+    @include mq('tablet-760') {
+        max-width: 241px;
+    }
+    @include mq('mobile-500') {
+        margin-bottom: 40px;
+    }
+}

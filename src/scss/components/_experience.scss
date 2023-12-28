@@ -1,0 +1,208 @@
+.experience {
+  padding: 0 0 95px;
+  @include mq("tablet-general-3") {
+    padding-bottom: 0;
+  }
+}
+
+.experience__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 269px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  background-image: url("../../src/assets/images/experince_heacer_dt.jpg");
+  background-repeat: no-repeat;
+  //background-position: top -105px left calc(50% + 630px);
+  background-size: 1440px 269px;
+  background-position: center;
+  overflow: hidden;
+  @include mq("tablet-general-3") {
+    position: relative;
+    left: -15px;
+    height: 120px;
+    width: calc(100% + 30px);
+    margin-bottom: 0px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 40px;
+    background-position: top -100px left -250px;
+  }
+  @include mq("tablet-s") {
+    background-position: top -100px left -320px;
+  }
+
+  &:before {
+    @include pseudo();
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 76, 110, 0.62) 3.07%, #004C6E 117.97%);
+  }
+}
+
+.experience__title {
+  position: relative;
+  margin-left: 74px;
+  color: $color-light;
+  font-weight: 700;
+  @include mq("tablet-general-3") {
+    max-width: 130px;
+    margin-left: 38px;
+    @include font(2.4rem, 3rem);
+  }
+}
+
+.experience__clients {
+  @include columns(calc(100% / 8 - 20px), -10px);
+  justify-content: center;
+  @include mq("tablet-m") {
+    @include columns(calc(100% / 4 - 20px), -10px);
+  }
+  @include mq("mobile-xl") {
+    @include columns(calc(100% / 3 - 20px), -10px);
+  }
+}
+
+.clients-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  @include transition-fast();
+
+  &--hidden {
+    @include mq("mobile-xl") {
+      display: none;
+    }
+  }
+
+  @include mq("mobile-xl") {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  @include hover-supported() {
+    transform: scale(1.1);
+  }
+
+  > img {
+    @include mq("mobile-xl") {
+      margin: 0 auto;
+    }
+  }
+}
+
+.experience__show-more-btn {
+  display: none;
+
+  @include mq("mobile-xl") {
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    width: fit-content;
+    @include font(1.3rem, 2.2rem, $color-primary, 700);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    &--hidden {
+      @include mq("mobile-xl") {
+        display: none;
+      }
+    }
+  }
+}
+
+
+.tell-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 85px;
+  padding: 60px 0;
+  background-color: $color-secondary;
+  border-radius: 8px;
+  @include mq("tablet-general-2") {
+    flex-wrap: wrap;
+    margin-top: 55px;
+    //margin-top: 70px;
+  }
+  @include mq("tablet-general-3") {
+    position: relative;
+    left: -15px;
+    width: calc(100% + 30px);
+    padding: 65px 0 50px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}
+
+.tell-us__employee {
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+  @include mq("tablet-general-2") {
+    width: 100%;
+    justify-content: center;
+    margin: 0 0 24px;
+  }
+}
+
+.tell-us__employee-photo {
+  width: 100px;
+  height: 100px;
+  margin-right: 24px;
+  //filter: drop-shadow(0px 4px 45px rgba(0, 0, 0, 0.12));
+  //transform: translateZ(0);
+  //transition: none !important;
+  @include mq("tablet-general-3") {
+    position: absolute;
+    top: -50px;
+    margin-right: 0;
+  }
+}
+
+.tell-us__employee-info {
+}
+
+.tell-us__employee-name {
+  margin-bottom: 5px;
+  @include font(2.2rem, 2.4rem, $color-primary, 700);
+  text-transform: uppercase;
+  @include mq("tablet-general-3") {
+    @include font(1.8rem, 2.4rem);
+    text-align: center;
+  }
+}
+
+.tell-us__employee-title {
+  @include font(1.2rem, 1.2rem, $color-grey-2);
+  @include mq("tablet-general-3") {
+    @include font(1.1rem, 1.1rem);
+    text-align: center;
+  }
+}
+
+.tell-us__link-btn {
+  width: 442px;
+  display: inline-flex;
+  font-weight: 700;
+  @include mq("tablet-general-3") {
+    width: 290px;
+    @include font(1.3rem, 1.8rem);
+    text-align: center;
+  }
+
+  > .telegram-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 14px;
+    background-image: url("../../src/assets/images/telegram_icon.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include mq("tablet-general-3") {
+      display: none;
+    }
+  }
+}

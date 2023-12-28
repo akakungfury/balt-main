@@ -1,0 +1,179 @@
+//$hb-size: 30px;
+//$hb-height: 20px;
+//$hb-height-opened: 24px;
+//$hb-width: 30px;
+//$hb-line-size: 2px;
+//$hb-line-width-opened: 27px;
+//$hb-line-color: $color-primary;
+//$hb-line-radius: $hb-line-size;
+//$hb-to-translate: ($hb-height - $hb-line-size) / 2;
+//$hb-bounce: cubic-bezier(0.87, -0.5, 0.19, 1.5);
+//
+//.hamburger-btn {
+//  position: relative;
+//  height: $hb-size;
+//  width: 30px;
+//  cursor: pointer;
+//  // margin: 50px auto;
+//  overflow: hidden;
+//
+//  &.open {
+//    height: $hb-height-opened;
+//  }
+//
+//  &__icon {
+//    position: absolute;
+//    width: $hb-width;
+//    height: $hb-height;
+//    top: 50%;
+//    left: 50%;
+//    transform: translate(-50%, -50%);
+//
+//    .open & {
+//      height: $hb-height-opened;
+//    }
+//  }
+//
+//  &__line {
+//    position: absolute;
+//    right: 0;
+//    background-color: $hb-line-color;
+//    height: $hb-line-size;
+//    // width: 100%;
+//    border-radius: $hb-line-radius;
+//    pointer-events: none;
+//
+//    &--1 {
+//      top: 0;
+//      width: 23px;
+//    }
+//
+//    &--2 {
+//      top: 0;
+//      bottom: 0;
+//      margin: auto;
+//      width: 18px;
+//    }
+//
+//    &--3 {
+//      bottom: 0;
+//      width: 25px;
+//    }
+//  }
+//
+//  /*--- Close Button 2 ---*/
+//
+//  &--close &__line--1 {
+//    transition: transform 0.2s ease-in-out, top 0.2s ease-in-out 0.3s;
+//  }
+//
+//  &--close &__line--1:before {
+//    content: "";
+//    position: absolute;
+//    width: 100%;
+//    height: $hb-line-size;
+//    background-color: $hb-line-color;
+//    border-radius: $hb-line-radius;
+//    transition: transform 0.1s ease-in-out 0.2s;
+//  }
+//
+//  &--close &__line--2 {
+//    transition: opacity 0s ease-in-out 0.3s;
+//  }
+//
+//  &--close &__line--3 {
+//    transition: opacity 0s ease-in-out 0.3s, bottom 0.2s ease-in-out 0.3s;
+//  }
+//
+//  // Open
+//  &--close.open &__line--1 {
+//    top: $hb-to-translate;
+//    transform: rotate(135deg);
+//    width: $hb-line-width-opened;
+//    //background-color: $color-light;
+//    transition: top 0.3s ease-in-out, transform 0.2s linear 0.3s, width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+//    // transition: "background-color" 0.3s ease-in-out, transform 0.2s linear 0.3s;
+//  }
+//
+//  &--close.open &__line--1:before {
+//    transform: rotate(90deg);
+//    width: $hb-line-width-opened;
+//    //background-color: $color-light;
+//    transition: transform 0.1s ease-in-out 0.3s, width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+//    // transition: "background-color" 0.3s ease-in-out, transform 0.2s linear 0.3s;
+//  }
+//
+//  &--close.open &__line--2 {
+//    opacity: 0;
+//    //background-color: $color-light;
+//    transition: opacity 0s ease-in-out 0.3s, background-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+//  }
+//
+//  &--close.open &__line--3 {
+//    bottom: $hb-to-translate;
+//    opacity: 0;
+//    width: $hb-line-width-opened;
+//    //background-color: $color-light;
+//    transition: bottom 0.3s ease-in-out, opacity 0s ease-in-out 0.3s, background-color 0.3s ease-in-out;
+//    // transition: "background-color" 0.3s ease-in-out, transform 0.2s linear 0.3s;
+//  }
+//}
+
+#menu {
+  position: relative;
+  z-index: 50 !important;
+  display: flex;
+  width: 26px;
+  height: 22px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px 0;
+  transition: transform 0.5s ease;
+  transition: none;
+  cursor: pointer;
+
+  //&.burger {
+  //  transform: translateX(-5px);
+  //}
+}
+
+.menu__span {
+  display: block;
+  background-color: $color-primary;
+  height: 2px;
+  transition: .5s ease;
+}
+
+.menu__span:last-child {
+  width: 68.75%;
+  margin-left: auto;
+}
+
+.plus_rotate {
+  background-color: $color-light;
+  transform: rotate(45deg) translate(-3px, -8px);
+}
+
+.minus_rotate {
+  background-color: $color-light;
+  transform: rotate(-45deg) translate(-1px, 5px);
+}
+
+.none {
+  display: none;
+}
+
+//test
+
+.hamburger-menu .navigation {
+  display: flex;
+  flex-direction: column;
+  margin: 80px 22px 0;
+
+}
+
+.hamburger-menu .navigation__link {
+  display: block;
+  margin: 20px 0;
+  @include font(2.8rem, 2.8rem, $color-light, 700);
+}

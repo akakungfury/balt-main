@@ -1,0 +1,38 @@
+.socials {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    //@include mq("tablet-760") {
+    //    justify-content: flex-start;
+    //    padding-bottom: 0;
+    //}
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include hover-supported() {
+            svg {
+                //fill: #EFBB6D;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        &:active {
+            svg {
+                //@include transition-mid(fill);
+                //fill: #EFBB6D;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        svg {
+            width: 44px;
+            height: 44px;
+            fill: $color-light;
+            transform: scale3d(0.96, 0.96, 0.96);
+            @include transition-fast(transform);
+        }
+    }
+}

@@ -1,0 +1,187 @@
+.about-us {
+  padding: 134px 0;
+  background-color: $color-primary;
+  @include mq("tablet-general") {
+    padding: 70px 0;
+  }
+  @include mq("tablet-m") {
+    padding: 0 0 50px;
+    background-color: $color-light;
+  }
+}
+
+.about-us__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include mq("tablet-m") {
+    flex-direction: column;
+  }
+}
+
+.about-us__text-container {
+  display: flex;
+  width: 708px;
+  align-items: center;
+  justify-content: space-between;
+  @include mq("desktop-m") {
+    width: 600px;
+    //justify-content: flex-start;
+  }
+  @include mq("tablet-general") {
+    flex-wrap: wrap;
+    width: fit-content;
+    align-self: flex-start;
+    flex-basis: 400px;
+    margin-right: 50px;
+  }
+  @include mq("tablet-m") {
+    flex-basis: inherit;
+    flex-wrap: inherit;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 10px;
+
+    margin-right: 0;
+    flex-basis: 100%;
+  }
+}
+
+.about-us__title {
+  position: relative;
+  flex: 0 0 160px;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  @include font(12rem, 16rem, rgba(255, 255, 255, .1), 800);
+  text-transform: uppercase;
+  @include mq("desktop-s") {
+    font-size: 11rem;
+  }
+  @include mq("tablet-general") {
+    writing-mode: inherit;
+    transform: none;
+    flex-basis: inherit;
+    line-height: 13rem;
+  }
+  @include mq("tablet-general-2") {
+    font-size: 7rem;
+    line-height: 9rem;
+  }
+  @include mq("tablet-m") {
+    margin-bottom: 15px;
+    @include font(3.4rem, 4.4rem, $color-primary);
+    text-transform: inherit;
+  }
+
+  &:before {
+    @include pseudo();
+    content: "O нас";
+    width: 150%;
+    top: -7px;
+    left: 8px;
+    @include font(4.5rem, 4.5rem, $color-primary);
+    opacity: 0.05;
+  }
+}
+
+.about-us__description {
+  width: 465px;
+  @include font(2rem, 2.6rem, $color-light);
+  @include mq("desktop-m") {
+    width: 415px;
+    @include font(1.8rem, 2.3rem);
+  }
+  @include mq("desktop-s") {
+    width: 395px;
+    @include font(1.7rem, 2.2rem);
+  }
+  @include mq("tablet-general-2") {
+    width: 310px;
+    @include font(1.4rem, 2.4rem);
+  }
+  @include mq("tablet-m") {
+    //width: 430px;
+    //width: 98%;
+    width: 91%;
+    color: $text-color-dark;
+  }
+  @include mq("tablet-s") {
+    //width: 290px;
+  }
+  @include mq("mobile-m") {
+    width: 100%;
+  }
+
+  > p:not(:last-of-type) {
+    margin-bottom: 15px;
+    @include mq("tablet-m") {
+      margin-bottom: 10px;
+    }
+
+    > a {
+      color: $color-light;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      @include mq("tablet-m") {
+        color: $text-color-dark;
+      }
+    }
+  }
+}
+
+.about-us__img-container {
+  position: relative;
+  margin-left: 40px;
+  @include mq("desktop-xl") {
+    margin-left: 70px;
+  }
+  @include mq("tablet-general") {
+    margin-left: 0px;
+  }
+  @include mq("tablet-m") {
+    width: 100%;
+    margin-bottom: 23px;
+    order: -1;
+  }
+  @include mq("tablet-s") {
+    width: calc(100% + 30px);
+  }
+
+  &:before {
+    @include pseudo();
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 76, 110, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+    transform: rotate(180deg);
+  }
+}
+
+.about-us__img {
+  border-radius: 8px;
+  @include mq("tablet-m") {
+    width: 100%;
+  }
+  @include mq("tablet-s") {
+    border-radius: 0;
+  }
+}
+
+.separator {
+  height: 2px;
+  margin: 2px 0;
+  background: linear-gradient(to left, rgba(0, 76, 110, 1), rgba(255, 255, 255, 0) 70%);
+  //background: linear-gradient(rgba(0, 76, 110, 1) linear-gradient(rgba(255, 255, 255, 0));
+  @include mq("tablet-m") {
+    display: none;
+  }
+
+  &--mirrored {
+    background: linear-gradient(to right, rgba(0, 76, 110, 1), rgba(255, 255, 255, 0) 70%);
+    //background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(0, 76, 110, 1) 70%);
+    @include mq("tablet-m") {
+      display: block;
+      background: linear-gradient(to left, rgba(0, 76, 110, 1), rgba(255, 255, 255, 0) 85%);
+    }
+  }
+}

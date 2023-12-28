@@ -1,0 +1,166 @@
+textarea,
+input,
+.input {
+  display: block;
+  background-color: $color-light-2;
+  border-radius: 2px;
+  cursor: pointer;
+  @include transition-fast("background-color");
+  @include transition-fast("border-color");
+
+  &:valid,
+  &:focus,
+  &:active {
+    background-color: $color-light;
+  }
+
+  &:valid::placeholder,
+  &:focus::placeholder,
+  &:active::placeholder {
+    opacity: 0;
+  }
+
+  @include hover-supported() {
+    &:valid::placeholder,
+    &:focus::placeholder,
+    &:active::placeholder {
+      opacity: 0;
+    }
+  }
+
+  .popup-form & {
+    width: 100%;
+    padding: 16px 32px;
+    border: 1px solid $color-dark-blue;
+    @include font(1.6rem, 2.4rem, $color-dark-blue, 500);
+    @include mq("tablet-s") {
+      @include font(1.2rem, 2rem);
+    }
+    @include hover-supported() {
+      background-color: $color-light;
+
+      &:valid::placeholder,
+      &:focus::placeholder,
+      &:active::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+
+  .book-form & {
+    width: calc(50% - 10px);
+    &.date-time-input {
+      width: 100%;
+    }
+
+    @include mq("tablet-s") {
+      width: 100%;
+    }
+  }
+
+  .footer-form &,
+  .contact-form & {
+    width: 100%;
+    padding: 13px 19px;
+    margin-bottom: 20px;
+    @include font(1.4rem, 2.2rem, $color-dark-blue, 500);
+    border: 1px solid transparent;
+    @include mq("tablet-m") {
+      @include font(1.2rem, 2rem);
+    }
+    @include hover-supported() {
+      background-color: $color-light;
+    }
+  }
+
+  .contact-form & {
+    &:valid,
+    &:focus,
+    &:active {
+      background-color: $color-light;
+      border-color: $color-dark-blue;
+    }
+    @include hover-supported() {
+      background-color: $color-light;
+      border-color: $color-dark-blue;
+    }
+  }
+}
+
+textarea {
+  resize: none;
+  min-height: 110px;
+  height: auto;
+}
+
+textarea::placeholder,
+input::placeholder {
+  font-weight: 500;
+  color: $text-color-grey;
+  // @include transition-fast("color");
+  // @include hover-supported() {
+  //   color: $color-dark-blue;
+  // }
+
+  .popup__form & {
+    // border: 1px solid transparent;
+  }
+
+  .footer-form &,
+  .contact-form & {
+    @include font(1.4rem, 2.2rem, #565665);
+    @include mq("tablet-m") {
+      @include font(1.2rem, 2rem);
+    }
+  }
+}
+
+textarea.error::placeholder,
+input.error::placeholder {
+  color: rgba(255, 0, 0, 0.3);
+}
+
+.error {
+  border-color: red;
+
+  &:valid,
+  &:focus {
+    border-color: red;
+  }
+}
+
+// .popup__form-container,
+// .contact-form__top-container {
+//   position: relative;
+// }
+
+// .popup__form-container > .phone-placeholder,
+// .contact-form__top-container > .phone-placeholder {
+//   position: absolute;
+//   @include z-index("main", 3);
+//   width: 45px;
+//   height: 18px;
+//   left: 27px;
+//   top: 27px;
+//   @include font-family("Inter");
+//   @include font(1.6rem, 1.6rem, $color-dark, 700);
+//   & > span {
+//     position: relative;
+//     top: -1px;
+//   }
+// }
+
+// .contact-form__top-container input {
+//   @include z-index("main", 2);
+// }
+
+// input.phone {
+//   display: block;
+//   &::placeholder {
+//     padding-left: 25px;
+//   }
+// }
+
+// .contact-form__checkbox-container {
+//   width: fit-content;
+// }

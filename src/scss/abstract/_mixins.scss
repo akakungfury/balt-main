@@ -1,0 +1,221 @@
+@mixin font($size: false, $lh: false, $color: false, $weight: false) {
+    @if $size {
+        font-size: $size;
+    }
+    @if $lh {
+        line-height: $lh;
+    }
+    @if $color {
+        color: $color;
+    }
+    @if $weight {
+        font-weight: $weight;
+    }
+}
+
+@mixin font-family($main-font) {
+    font-family: $main-font, Cera, Arial, sans-serif;
+}
+
+@mixin additional-font-family($additional-font) {
+    font-family: $additional-font, Georgia, Arial, sans-serif;
+}
+
+@mixin transition-mid($props: all, $duration: 0.5s, $timing: ease-in-out, $delay: 0) {
+    transition-property: $props;
+    transition-duration: $duration;
+    transition-timing-function: $timing;
+    transition-delay: $delay;
+}
+
+@mixin transition-fast($props: all, $duration: 0.3s, $timing: ease-in-out, $delay: 0) {
+    transition-property: $props;
+    transition-duration: $duration;
+    transition-timing-function: $timing;
+    transition-delay: $delay;
+}
+
+// Usage:   @include transition(width, height 0.3s ease-in-out);
+// Output:  -webkit-transition(width 0.2s, height 0.3s ease-in-out);
+//          transition(width 0.2s, height 0.3s ease-in-out);
+//
+// Pass in any number of transitions
+@mixin transition-multi($transitions...) {
+    $unfoldedTransitions: ();
+    @each $transition in $transitions {
+        $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+    }
+
+    -webkit-transition: $unfoldedTransitions;
+    transition: $unfoldedTransitions;
+}
+
+@function unfoldTransition($transition) {
+    // Default values
+    $property: all;
+    $duration: 0.3s;
+    $easing: ease-in-out; // Browser default is ease, which is what we want
+    $delay: null; // Browser default is 0, which is what we want
+    $defaultProperties: ($property, $duration, $easing, $delay);
+
+    // Grab transition properties if they exist
+    $unfoldedTransition: ();
+    @for $i from 1 through length($defaultProperties) {
+        $p: null;
+        @if $i <= length($transition) {
+            $p: nth($transition, $i);
+        } @else {
+            $p: nth($defaultProperties, $i);
+        }
+        $unfoldedTransition: append($unfoldedTransition, $p);
+    }
+
+    @return $unfoldedTransition;
+}
+
+@mixin columns($width, $marginX: 0) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: $marginX;
+    margin-right: $marginX;
+    > * {
+        flex-basis: $width;
+        margin-left: -$marginX;
+        margin-right: -$marginX;
+    }
+}
+
+@mixin hover-supported {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+// @mixin media-laptop {
+//   @media (max-width: $content-width) { @content; }
+// }
+
+// @mixin media-laptop-medium {
+//   @media (max-width: $laptop-medium-width) { @content; }
+// }
+
+// @mixin media-laptop-small {
+//   @media (max-width: $laptop-small-width) { @content; }
+// }
+
+// @mixin media-laptop-extra-small {
+//   @media (max-width: $laptop-extra-small-width) { @content; }
+// }
+
+// @mixin media-tablet-large {
+//   @media (max-width: $tablet-large-width) { @content; }
+// }
+// @mixin media-tablet {
+//   @media (max-width: $tablet-width) { @content; }
+// }
+
+// @mixin media-tablet-medium {
+//   @media (max-width: $tablet-medium-width) { @content; }
+// }
+
+// @mixin media-tablet-small {
+//   @media (max-width: $tablet-small-width) { @content; }
+// }
+
+// @mixin media-mobile-large {
+//   @media (max-width: $mobile-large-width) { @content; }
+// }
+
+// @mixin media-mobile-medium {
+//   @media (max-width: $mobile-medium-width) { @content; }
+// }
+
+// @mixin media-mobile {
+//   @media (max-width: $mobile-width) { @content; }
+// }
+
+@mixin mq($screen-width-alias, $type: max, $custom-width: false) {
+    @if ($screen-width-alias == "custom") {
+        @if $type {
+            @media only screen and (#{$type}-width: $custom-width) {
+                @content;
+            }
+        } @else {
+            @media only screen and (max-width: $custom-width) {
+                @content;
+            }
+        }
+    } @else if map_has_key($breakpoints, $screen-width-alias) {
+        $width: map_get($breakpoints, $screen-width-alias);
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin z-index($element-alias, $value-difference: 0) {
+    @if map_has_key($z-indexes, $element-alias) {
+        $z-index-def-value: map_get($z-indexes, $element-alias);
+        z-index: $z-index-def-value + $value-difference;
+    }
+}
+
+//specific mixins
+@mixin text-gradient-color($gradient) {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+}
+
+@mixin border-gradient-color($gradient, $border-width: 1px) {
+    border: $border-width solid;
+    border-image: $gradient;
+    border-image-slice: 1;
+}
+
+@mixin border-bottom-gradient-color($gradient, $border-width: 1px) {
+    border-bottom: $border-width solid;
+    border-image: $gradient;
+    border-image-slice: 1;
+}
+
+@mixin push--auto {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+@mixin pseudo($content: "", $pos: absolute, $display: block) {
+    position: $pos;
+    display: $display;
+    content: $content;
+}
+
+@mixin text-shorten($numLines: 1) {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    @supports (-webkit-line-clamp: $numLines) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: initial;
+        display: -webkit-box;
+        -webkit-line-clamp: $numLines;
+        -webkit-box-orient: vertical;
+    }
+}
+
+@mixin flex-center($x: true, $y: true) {
+    display: flex;
+    @if $x {
+        justify-content: center;
+    }
+    @if $y {
+        align-items: center;
+    }
+}

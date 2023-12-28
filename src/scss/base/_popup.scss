@@ -1,0 +1,455 @@
+.popup {
+    // overflow: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    // margin: 30px 0 30px;
+    // margin: 30px 0 0;
+    margin: 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // width: 92.42%;
+    width: 95%;
+    // max-width: 660px;
+    // max-height: calc(100vh - 60px);
+    max-height: calc(100vh);
+    // padding: 40px 46px 168px;
+    transform: translate(-50%, -50%) scale(0);
+    @include z-index("popup", 1);
+    // max-width: 540px;
+    // width: 80%;
+    @include transition-fast(all, 0.2s, null, 0s);
+    // @media screen and (max-height: 720px){
+    //   transform: translate(-50%, 0) scale(1);
+    // }
+    // @media screen and (max-height: 720px) and (max-width: 580px) {
+    //   max-height: calc(100vh - 100px);
+    // }
+    @media screen and (max-width: 760px) {
+        max-height: calc(100vh - 84px);
+    }
+    // @include mq("tablet-m") {
+    //   padding: 70px 30px;
+    // }
+    // @include mq("tablet-s") {
+    //   width: 100%;
+    //   min-height: 100vh;
+    //   min-height: -moz-available;
+    //   min-height: -webkit-fill-available;
+    //   min-height: fill-available;
+    //   height: 100%;
+    //   justify-content: center;
+    //   padding: 0 30px;
+    // }
+    // @media screen and (max-height: 720px) {
+    //   transform: translate(-50%, 0) scale(1);
+    // }
+
+    &--shown {
+        @include transition-fast(all, 0.3s, null, 0.1s);
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &--outer-title {
+        top: 0;
+        background: transparent;
+        transform: translate(-50%, 0) scale(0);
+
+        &.popup--shown {
+            transform: translate(-50%, 0) scale(1);
+        }
+    }
+
+    & .pretty {
+        margin: 15px 0 30px;
+
+        & .state label.pretty-privacy-checkbox__text {
+            color: $color-light;
+            line-height: 1.8rem;
+        }
+    }
+}
+
+// .popup__content {
+//   position: relative;
+//   overflow: scroll;
+//   overflow-x: hidden;
+//   // padding: 40px 46px 168px;
+//   padding: 0 46px 0;
+//   margin: 0 0 50px;
+//   background: $color-light;
+//   border-radius: 20px;
+//   // background-color: #000;
+//   background-image: url(/assets/images/general/popup-palm.svg);
+//   background-repeat: no-repeat;
+//   // background-position: left 120px top 10px;
+//   background-position: left 200px top -70px;
+//   // background-size: 1800px 2308px;
+//   background-size: 1500px 1923px;
+
+//   scrollbar-gutter: stable;
+//   scrollbar-width: thin;
+//   scrollbar-color: $scrollbar-thumb $scrollbar-thumb;
+//   scroll-margin: 40px;
+//   scroll-padding: 40px;
+
+//   @include mq("tablet-580") {
+//     padding: 48px 10px 48px 15px;
+//     background-size: unset;
+//     background-position: left 20px top -70px;
+//   }
+
+//   &::-webkit-scrollbar {
+//     width: 12px;
+//     height: 12px;
+//     // background-color: #458245;
+//     @include mq("tablet-580") {
+//       width: 8px;
+//       height: 8px;
+//     }
+//   }
+
+//   // &::scrollbar-track,
+//   &::-webkit-scrollbar-track {
+//     // background-color: red;
+//     // width: 18px;
+//     // border: 10px solid transparent;
+//     // margin: 30px 0;
+//     margin: 100px 0;
+//     @include mq("tablet-1100") {
+//       // margin: 50px 0;
+//       margin: 120px 0;
+//     }
+//     border-radius: 4px;
+//     // border: 10px solid transparent;
+//     background-color: $color-light;
+//     // border-radius: 100px;
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     // border-radius: 4px;
+//     // width: 18px;
+//     // margin: 40px 0;
+//     border-radius: 10px;
+//     border: 3px solid $color-light;
+//     background-color: $scrollbar-thumb;
+//     @include mq("tablet-580") {
+//       border: 1px solid $color-light;
+//     }
+//   }
+// }
+
+.popup__content {
+    position: relative;
+    // overflow: scroll;
+    // overflow-x: hidden;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    // padding: 40px 46px 168px;
+    // padding: 0 46px 0;
+    margin: 0 0 50px;
+    background: $color-light;
+    border-radius: 20px;
+    // background-color: #000;
+    //background-image: url(/assets/images/general/popup-palm.png);
+    background-repeat: no-repeat;
+    // background-position: left 120px top 10px;
+    background-position: left 200px top -70px;
+    // background-size: 1800px 2308px;
+    background-size: 1500px 1923px;
+
+    .popup__form-container {
+        overflow: scroll;
+        overflow-x: hidden;
+        width: 100%;
+        padding: 0 46px 0;
+        // display: flex;
+        // justify-content: center;
+
+        //scrollbar-gutter: stable;
+        //scrollbar-width: thin;
+        //scrollbar-color: $scrollbar-thumb $scrollbar-thumb;
+        //scroll-margin: 50px;
+        //scroll-padding: 40px;
+
+        @include mq("tablet-580") {
+            // padding: 48px 10px 48px 15px;
+            background-size: unset;
+            background-position: left 20px top -70px;
+        }
+
+        //&::-webkit-scrollbar {
+        //    width: 12px;
+        //    height: 12px;
+        //    // background-color: #458245;
+        //    @include mq("tablet-580") {
+        //        width: 8px;
+        //        height: 8px;
+        //    }
+        //}
+
+        //// &::scrollbar-track,
+        //&::-webkit-scrollbar-track {
+        //    // background-color: red;
+        //    // width: 18px;
+        //    // border: 10px solid transparent;
+        //    // margin: 30px 0;
+        //    margin: 50px 0;
+        //    @include mq("tablet-1100") {
+        //        // margin: 50px 0;
+        //        margin: 50px 0;
+        //    }
+        //    border-radius: 4px;
+        //    // border: 10px solid transparent;
+        //    background-color: $color-light;
+        //    // border-radius: 100px;
+        //}
+        //
+        //&::-webkit-scrollbar-thumb {
+        //    // border-radius: 4px;
+        //    // width: 18px;
+        //    // margin: 40px 0;
+        //    border-radius: 10px;
+        //    border: 3px solid $color-light;
+        //    background-color: $scrollbar-thumb;
+        //    @include mq("tablet-580") {
+        //        border: 1px solid $color-light;
+        //    }
+        //}
+    }
+
+    .popup-form {
+        margin: 0 auto;
+    }
+}
+
+.popup__logo {
+    @include font(2.4rem, 2.4rem, $color-dark, 600);
+    letter-spacing: 0.37em;
+}
+
+.popup__title {
+    letter-spacing: -0.04em;
+}
+
+.popup__subtitle {
+    margin-bottom: 30px;
+    @include font(2.4rem, 2.4rem, $color-dark, 700);
+    letter-spacing: -0.04em;
+    @include mq("tablet-580") {
+        @include font(2rem, 2rem);
+        margin-bottom: 20px;
+    }
+}
+
+.popup__form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+// .popup-form input {
+//   margin-bottom: 15px;
+// }
+
+// .popup-form input:last-of-type {
+//   margin-bottom: 50px;
+// }
+
+.popup__close-btn {
+    // display: none;
+    position: fixed;
+    // top: 46px;
+    //top: 27px;
+    //right: 27px;
+    //width: 40px;
+    //height: 40px;
+    cursor: pointer;
+
+    top: -40px;
+    right: -30px;
+    border: 1px solid $color-light;
+    border-radius: 50%;
+    padding: 10px;
+
+    @include transition-fast();
+    @include mq("mobile-500") {
+        //right: 15px;
+        //top: 15px;
+
+        //&.ico-cross {
+        //    width: 18px;
+        //    height: 18px;
+        //}
+        top: -45px;
+        right: 0px;
+    }
+    @include hover-supported() {
+        transform: rotate(90deg);
+    }
+    // @include mq("tablet-1100") {
+    //   display: block;
+    //   top: 170px;
+    //   right: 16px;
+    // }
+    // @include mq("tablet-580") {
+    //   top: 176px;
+    //   right: 10px;
+    // }
+    z-index: 50;
+
+    &.ico {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain; //new
+        align-self: center;
+    }
+
+
+    &.ico-cross {
+        width: 40px;
+        height: 40px;
+        background-image: url("../../src/assets/images/baltika/cross.svg");
+        background-size: 80%;
+        @include mq("mobile-500") {
+            width: 30px;
+            height: 30px;
+            background-size: 70%;
+        }
+    }
+}
+
+.popup-overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+    @include z-index("popup");
+
+    &--active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.popup__submit-btn {
+    align-self: center;
+    width: 250px;
+    height: 70px;
+    margin-bottom: 40px;
+}
+
+.popup__messengers-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & .book-tour__messengers-description {
+        text-align: center;
+        margin: 0 0 20px;
+        @include mq("tablet-s") {
+            max-width: 313px;
+        }
+    }
+}
+
+.popup-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 70px 30px 30px;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 8px;
+    background: #232323;
+    @include z-index("popup", 1);
+    max-width: 97%;
+    width: fit-content;
+    @include transition-fast("all", 0.2s);
+    @include mq("mobile-xl") {
+        padding: 20px 45px 20px 20px;
+    }
+
+    &--active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.popup-message__close-btn {
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 11.5px);
+    width: 25px;
+    height: 23px;
+    cursor: pointer;
+    @include mq("tablet-s") {
+        top: calc(50% - 10px);
+        right: 10px;
+        width: 22px;
+        height: 20px;
+    }
+}
+
+.popup-message__text {
+    @include font(2.5rem, 3rem, $color-primary, 700);
+    @include mq("mobile-xl") {
+        @include font(1.8rem, 2.2rem);
+    }
+}
+
+.popup-form__bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include mq("tablet-580") {
+        flex-direction: column;
+    }
+}
+
+.popup-form__optional-text {
+    @include font(1.2rem, 1.44rem);
+    letter-spacing: -0.04em;
+    margin-right: 40px;
+    @include mq("tablet-580") {
+        margin-right: 0;
+        margin-bottom: 36px;
+    }
+}
+
+.popup-form__submit-btn {
+    position: relative;
+    width: 134px;
+    padding: 11px 0;
+    flex-shrink: 0;
+    text-transform: unset;
+    @include mq("tablet-580") {
+        width: 163px;
+    }
+
+    &:disabled {
+        border-color: #a0a0a0;
+        background-color: transparent;
+        color: #a0a0a0;
+
+        .submit-loader {
+            opacity: 1;
+        }
+    }
+}

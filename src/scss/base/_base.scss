@@ -1,0 +1,313 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+a,
+button,
+select,
+input,
+textarea,
+div,
+span {
+    @extend %disableBlueHighlightOnPointer;
+    // -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    //line-height: 0;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    border: none;
+    outline: none !important;
+    font: inherit;
+}
+
+textarea,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+.input-checkbox {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+button {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    //scroll-behavior: smooth !important;
+}
+
+body {
+    @include font-family($primary-font);
+    @include font(1.6rem, false, $color-light, 400);
+    min-height: 100vh;
+    scroll-behavior: smooth !important;
+    text-rendering: optimizeSpeed;
+
+    @include mq("tablet-m") {
+        font-size: 1.2rem;
+    }
+
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: $color-primary $color-primary;
+
+    * ::-webkit-scrollbar,
+    &::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+
+        @include mq("tablet-580") {
+            width: 8px;
+            height: 8px;
+        }
+    }
+
+    // &::scrollbar-track,
+    * ::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-track {
+        background-color: $color-light;
+    }
+
+    * ::-webkit-scrollbar-thumb,
+    &::-webkit-scrollbar-thumb {
+        //border-radius: 10px;
+        border: 3px solid $color-light;
+        background-color: $color-primary;
+        @include mq("tablet-580") {
+            border: 1px solid $color-light;
+        }
+    }
+}
+
+.body-wrapper {
+    overflow: hidden;
+    @media screen and (min-width: 3450px) {
+        max-width: 3500px;
+        margin: 0 auto;
+    }
+    // @include mq("desktop-xxl") {
+    //   max-width: 1920px;
+    // }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+.visuallyhiddenhav {
+    @extend %visually-hidden;
+}
+
+.lock-scroll {
+    // // overflow: hidden;
+    // position: fixed;
+    // overflow-y: scroll;
+    // width: 100%;
+    // // @include media-tablet {
+    // //   position: static;
+    // // }
+    // position: fixed;
+    overflow: hidden !important;
+    height: 100vh !important;
+    // margin-right: 15px;
+}
+
+.preload,
+.preload * {
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+main {
+    //margin-top: 124px;
+    //@include mq("tablet-general") {
+    //  margin-top: 64px;
+    //}
+}
+
+.title-xl {
+    @include font(9.6rem, 9.6rem, $color-light, 700);
+    text-transform: uppercase;
+    @include mq("desktop-m") {
+        @include font(9rem, 9rem);
+    }
+    @include mq("tablet-general-2") {
+        @include font(3.2rem, 4rem);
+    }
+}
+
+.title-l {
+    @include font(8rem, 8rem, $color-light, 700);
+    text-transform: uppercase;
+    @include mq("tablet-general-2") {
+        @include font(3.2rem, 4rem);
+    }
+}
+
+.title-m {
+    @include font(4.8rem, 5.5rem, $color-primary, 800);
+    text-transform: uppercase;
+    // @include mq("tablet-general-2") {
+    //   @include font(3.2rem, 4rem);
+    // }
+}
+
+.title-s {
+    @include font(2rem, 2.8rem, false, 700);
+    @include mq("tablet-m") {
+        @include font(1.6rem, 2.4rem);
+    }
+}
+
+.description {
+    @include font(1.6rem, 2.4rem, $color-grey);
+    @include mq("tablet-m") {
+        @include font(1.2rem, 2rem);
+    }
+}
+
+//.block-separator {
+//  height: 50px;
+//  background-color: $color-primary;
+//  background-repeat: repeat;
+//  background-image: url("../../src/assets/images/icons/separator_bg_pattern.svg");
+//  background-position-y: -33px;
+//}
+
+//TODO: check in mobile browsers
+body {
+    height: 100vh;
+}
+
+/* Avoid Chrome to see Safari hack */
+@supports (-webkit-touch-callout: none) {
+    body {
+        /* The hack for Safari */
+        height: -webkit-fill-available;
+    }
+}
+
+.body-overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    // width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    // backdrop-filter: blur(5px);
+    backdrop-filter: blur(9px);
+    pointer-events: none;
+    // transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out, padding 0s 0.4s ease-in-out;
+    @include z-index("body-overlay");
+
+    padding-right: 12px;
+    @include mq("tablet-1024") {
+        padding-right: 0px;
+    }
+
+    &--shown {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .lock-scroll & {
+        padding: 0;
+        transition: opacity 0.4s ease-in-out, padding 0s;
+    }
+}
+
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+////fix native css-html scroll
+//:target:before {
+//  content: "";
+//  display: block;
+//  height: 120px; //Height of header
+//  margin-top: -120px;
+//  //@include mq("tablet-general") {
+//  //  height: 200px; //Height of header
+//  //  margin-top: -200px;
+//  //}
+//}
+//[id]::before {
+//  content: '';
+//  display: block;
+//  height: 120px; //Height of header
+//  margin-top: -120px;
+//  visibility: hidden;
+//}

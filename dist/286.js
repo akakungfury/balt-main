@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvalues=self.webpackChunkvalues||[]).push([[286],{286:function(e,s,u){e.exports=u.p+"assets/images/footer-block-med.jpg"}}]);

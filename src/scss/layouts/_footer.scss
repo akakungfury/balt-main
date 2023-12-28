@@ -1,0 +1,274 @@
+.footer {
+    position: relative;
+    padding: 412px 0 200px;
+    height: 685px;
+    //background-image: url("../../src/assets/images/baltika/footer-block-med.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @include mq("tablet-850") {
+        height: auto;
+    }
+    @include mq('tablet-760') {
+        padding: 200px 0 100px;
+    }
+    @include mq('mobile-450') {
+        background-position: bottom;
+    }
+}
+
+.footer__wrapper {
+    display: flex;
+    //align-items: center;
+    gap: 100px;
+    max-width: 1374px + 80px;
+    padding: 0 40px;
+    @include mq("desktop-1440") {
+        gap: 80px;
+    }
+    @include mq("desktop-1370") {
+        gap: 70px;
+    }
+    @include mq("desktop-1280") {
+        gap: 60px;
+    }
+    @include mq("tablet-1100") {
+        gap: 50px;
+    }
+    @include mq("tablet-1015") {
+        padding: 0 24px;
+    }
+    @include mq("tablet-850") {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+}
+
+//.footer__title {
+//    //@include font(2.4rem, 3.4rem);
+//    margin-bottom: 25px;
+//    @include mq("tablet-general-3") {
+//        @include font(1.8rem, 2.8rem);
+//    }
+//}
+
+.footer-item {
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    @include mq("tablet-850") {
+        -webkit-align-items: center;
+    }
+
+    &:nth-of-type(2) {
+        flex-shrink: 1;
+    }
+
+    &:last-of-type {
+        &:after {
+            display: none;
+        }
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 30px;
+        right: calc(-100px / 2 - 3.4px);
+        display: block;
+        width: 6.8px;
+        height: 80px;
+        background-image: url("../../src/assets/images/baltika/wave-line-i.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        @include mq("desktop-1440") {
+            right: calc(-80px / 2 - 3.4px);
+        }
+        @include mq("desktop-1370") {
+            right: calc(-70px / 2 - 3.4px);
+        }
+        @include mq("desktop-1280") {
+            right: calc(-60px / 2 - 3.4px);
+        }
+        @include mq("tablet-1100") {
+            right: calc(-50px / 2 - 3.4px);
+        }
+        @include mq("tablet-850") {
+            display: none;
+        }
+    }
+
+    .footer__logo {
+        position: relative;
+        top: 30px;
+        width: 92px;
+        @include mq("tablet-1100") {
+            width: 55px;
+            margin-bottom: 26px;
+        }
+    }
+
+    .footer-item__title {
+        margin-bottom: 11px;
+        @include font(2.4rem, 132%);
+        opacity: .75;
+        @include mq("tablet-1100") {
+            margin-bottom: 10px;
+        }
+        @include mq("tablet-760") {
+            @include font(1.2rem);
+        }
+        //@include mq("tablet-general-3") {
+        //    @include font(1.8rem, 2.8rem);
+        //}
+    }
+
+    .footer-item__desc {
+        @include font(2.8rem, 132%);
+        @include mq("tablet-1100") {
+            @include font(2rem);
+        }
+        @include mq("tablet-760") {
+            text-align: center;
+            @include font(1.4rem);
+        }
+        @include mq('mobile-450') {
+            max-width: 210px;
+        }
+    }
+
+    .footer-item__link {
+        width: fit-content;
+        @include font(2.8rem, 132%, $color-light);
+        border-bottom: 1px solid transparent;
+        @include transition-fast(border-color);
+        @include mq("tablet-1100") {
+            @include font(2rem);
+        }
+        @include mq("tablet-760") {
+            @include font(1.4rem);
+        }
+
+        &:not(:last-of-type) {
+            margin-bottom: 8px;
+            @include mq("tablet-760") {
+                margin-bottom: 5px;
+            }
+        }
+
+        @include hover-supported() {
+            border-color: $color-light;
+        }
+
+        &:active {
+            border-color: $color-light;
+        }
+    }
+
+    &--address-desk {
+        @include mq('tablet-760') {
+            display: none;
+        }
+    }
+
+    &--address-mob {
+        display: none;
+        @include mq('tablet-760') {
+            display: flex;
+        }
+    }
+
+    .socials {
+        justify-content: flex-start;
+        @include mq("mobile-500") {
+            gap: 8px;
+        }
+
+        .social-link {
+            svg {
+                @include mq("tablet-1015") {
+                    width: 34px;
+                    height: 34px;
+                }
+                @include mq("mobile-500") {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+}
+
+.footer__wave-img-wrapper {
+    position: absolute;
+    top: -6px;
+    width: 100%;
+    @include mq('mobile-450') {
+        top: -3px;
+    }
+
+
+    &-desk {
+        @include mq('mobile-450') {
+            display: none;
+        }
+    }
+
+    &-mob {
+        display: none;
+        @include mq('mobile-450') {
+            display: block;
+        }
+    }
+
+    .footer__wave-img-container {
+        width: 110%;
+        left: -5%;
+    }
+
+    .footer__wave-img-mob,
+    .footer__wave-img {
+        width: 100%;
+        height: 350px;
+        //background-image: url("../../src/assets/images/baltika/bottom-wave-img.png");
+        background-repeat: repeat;
+        background-position: 0 center;
+        //background-size: 1950px auto;
+        position: absolute;
+        // z-index: 8;
+        bottom: 0;
+        left: 0;
+        @include mq('mobile-450') {
+            height: 250px;
+            background-size: contain;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+        // @include mq("custom", min, 1921px) {
+        //   background-size: cover;
+        // }
+        // @include mq("mobile-xl") {
+        //   height: 665px;
+        //   background-image: url("/assets/images/main_bg_m.jpg");
+        //   background-size: cover;
+        // }
+        //@include mq("custom", min, 1921px) {
+        //    background-size: cover;
+        //    background-position: top;
+        //}
+        //@include mq("tablet-general-2") {
+        //    background-image: url("/assets/images/welldone_bg_new_m_fnl.png");
+        //    background-size: cover;
+        //    background-position-y: 0px;
+        //    // height: 330px;
+        //    height: 512px;
+        //}
+        //@include mq("tablet-general-4") {
+        //    height: 400px;
+        //    background-position-y: 90px;
+        //}
+    }
+}

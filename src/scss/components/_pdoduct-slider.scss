@@ -1,0 +1,255 @@
+.product-slider__container {
+    position: relative;
+}
+
+.product-slider {
+    margin: 0 115px;
+    @include mq('desktop-1550') {
+        margin: 0 80px;
+    }
+    @include mq('tablet-1015') {
+        margin: 0 50px;
+    }
+    @include mq('tablet-760') {
+        margin: 0 24px;
+    }
+
+    .product-slider__slides-wrapper {
+    }
+
+    .product-slide {
+        display: flex;
+        justify-content: space-between;
+        height: auto;
+        //border: 1px solid pink;
+        //background-color: $color-light;
+        @include mq('tablet-760') {
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .product-slide__img-container {
+            display: flex;
+            align-items: center;
+            width: calc(100% / 2 - 12px);
+            //border: 1px solid red;
+            @include mq('tablet-760') {
+                width: 100%;
+            }
+        }
+
+        .product-slide__info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: calc(100% / 2 - 12px);
+            @include mq('tablet-760') {
+                width: 100%;
+            }
+            @include mq('tablet-760') {
+                align-items: center
+            }
+            //border: 1px solid blue;
+        }
+
+        .product-slide__title {
+            width: fit-content;
+            margin-bottom: 40px;
+            @include font(4.8rem, 125%, false, 700);
+            text-transform: uppercase;
+            @include text-gradient-color(linear-gradient(90deg, #E39E5F -1.92%, #FBD77A 54.93%));
+            @include mq('desktop-1280') {
+                @include font(4rem);
+                margin-bottom: 30px;
+            }
+            @include mq('tablet-1015') {
+                @include font(2.4rem);
+                margin-bottom: 20px;
+            }
+            @include mq('tablet-760') {
+                max-width: 210px;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+        }
+
+        .product-slide__desc {
+            max-width: 700px;
+            @include font(2.8rem, 132%, $color-primary);
+            text-align: left;
+            margin-bottom: 40px;
+            @include mq('desktop-1280') {
+                @include font(2rem);
+                margin-bottom: 30px;
+            }
+            @include mq('tablet-1015') {
+                @include font(1.6rem);
+            }
+            @include mq('tablet-760') {
+                @include font(1.4rem);
+                text-align: center;
+            }
+        }
+
+        .product-slide__btn {
+            width: 224px;
+            @include mq('tablet-1015') {
+                padding: 13px 14px 15px;
+                width: 178px;
+                @include font(1.6rem);
+            }
+
+            &-desk {
+                @include mq('tablet-760') {
+                    display: none;
+                }
+            }
+
+            &-mob {
+                display: none;
+                @include mq('tablet-760') {
+                    display: flex;
+                }
+            }
+        }
+
+    }
+
+}
+
+.product-slider__navigation {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 0px;
+    translate: 0 -50%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    pointer-events: none !important;
+    @include mq('mobile-450') {
+        top: 31%
+    }
+    @include mq('mobile-405') {
+        top: 29%
+    }
+    @include mq('mobile-375') {
+        top: 26%
+    }
+    @include mq('mobile-360') {
+        top: 24%
+    }
+
+    .product-slider__button-prev {
+        pointer-events: all;
+
+        svg {
+            rotate: 180deg;
+        }
+    }
+
+    .product-slider__button-next {
+        pointer-events: all;
+    }
+}
+
+
+.product-slider__thumbs {
+    position: relative;
+    width: 72px;
+    height: 100px;
+    overflow: hidden;
+    perspective: 1000;
+    cursor: pointer;
+    margin: 60px auto 0;
+    @include mq('tablet-760') {
+        display: none;
+    }
+
+    .product-slider__thumbs-circle {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        translate: 0 -50%;
+
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #FBD77A 0%, #E39E5F 90.62%);
+    }
+
+    .product-thumb-slide {
+        position: absolute;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        //animation: thumb-prev .5s ease-in-out forwards 0s;
+        //
+        //&.js-next {
+        //    animation: thumb-next .5s ease-in forwards 0s;
+        //}
+
+        //&:first-of-type {
+        //animation: thumb-prev 1s ease-in-out forwards 1.5s;
+        ////}
+        //
+        //&:last-of-type {
+        //    animation: thumb-next 1s ease-in-out forwards 1.5s;
+        //}
+    }
+}
+
+//.js-prev {
+//    animation: thumb-prev 1s ease-in-out forwards 0s;
+//}
+
+//.js-next {
+//    animation: thumb-next 1s ease-in forwards 0s;
+//}
+
+//@keyframes thumb-prev {
+//    0% {
+//        translate: 0 0;
+//    }
+//    100% {
+//        translate: -110% 0;
+//    }
+//}
+//
+//@keyframes thumb-next {
+//    0% {
+//        translate: 110% 0;
+//    }
+//    100% {
+//        translate: 0 0;
+//    }
+//}
+
+.product-thumb-slide-1, .product-thumb-slide-2 {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.product-thumb-slide-1 {
+    transform: rotateY(180deg);
+}
+
+.product-thumb-slide-2 {
+    z-index: 2;
+}
+
+.product-slider__thumbs-wrapper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+}
+
+//.product-slider__thumbs:hover .product-slider__thumbs-wrapper,
+.product-slider__thumbs.js-flipped .product-slider__thumbs-wrapper {
+    transform: rotateY(180deg);
+}

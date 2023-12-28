@@ -1,0 +1,35 @@
+.navigation {
+  display: flex;
+}
+
+.navigation__item {
+  &:not(:last-of-type) {
+    margin-right: 35px;
+  }
+}
+
+.navigation__link {
+  position: relative;
+  padding: 5px 0;
+  @include font(1.8rem, 1.8rem, $color-dark-2);
+  @include transition-fast();
+
+  &:after {
+    @include pseudo();
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    color: transparent;
+    background: $color-dark-2;
+    height: 1px;
+    @include transition-fast();
+  }
+
+  @include hover-supported() {
+    &:after {
+      width: 100%;
+    }
+  }
+}

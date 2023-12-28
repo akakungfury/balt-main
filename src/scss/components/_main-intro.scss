@@ -1,0 +1,368 @@
+.main-intro {
+    position: relative;
+    height: 100vh;
+    //min-height: 929px;
+    max-height: 1080px;
+    //@media screen and (min-width: 1024px) and (max-height: 929px) {
+    //
+    //}
+    @include mq("tablet-1024") {
+        height: 100dvh;
+        max-height: 1400px;
+    }
+    @include mq('tablet-760') {
+        height: auto;
+    }
+
+    margin: 0 auto;
+    //background-color: red;
+    //background-image: url("../../src/assets/images/baltika/main-bock-med.jpg");
+    //background-repeat: no-repeat;
+    //background-position: top -105px left calc(50% + 630px);
+    //background-size: auto calc(100vh + 120px);
+    //@include mq("tablet-general-2") {
+    //    max-height: 1024px;
+    //    //background-image: url("../../src/assets/images/intor_triangle_dt.png");
+    //    //background-repeat: no-repeat;
+    //    background-position: bottom right -150px;
+    //    background-size: auto 50vh;
+    //}
+    //@include mq("tablet-m") {
+    //    height: calc(100vh - 30px);
+    //    background-size: auto 40vh;
+    //    background-position: bottom right -100px;
+    //    margin-bottom: 30px;
+    //}
+    //@include mq("tablet-general-3") {
+    //    background-image: none;
+    //    max-height: 900px;
+    //    min-height: 850px;
+    //}
+    //@include mq("tablet-s") {
+    //    background-image: none;
+    //    max-height: 800px;
+    //    min-height: 700px;
+    //}
+    //@include mq("mobile-xl") {
+    //    max-height: 700px;
+    //}
+    //@include mq("mobile-l") {
+    //    max-height: 650px;
+    //    min-height: 573px;
+    //}
+}
+
+.main-intro__wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 50%;
+    translate: -50% 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 1614px;
+    @media screen and (min-width: 1024px) and (max-height: 800px) {
+        top: 30%;
+        translate: -50% -5%;
+    }
+    @include mq('tablet-760') {
+        position: relative;
+        top: unset;
+        left: unset;
+        translate: none;
+    }
+    //@include mq('mobile-500') {
+    //}
+    //position: relative;
+    //display: flex;
+    //height: 100%;
+    //max-width: unset;
+    //flex-direction: column;
+    //justify-content: center;
+    //align-items: flex-start;
+    //@include mq("tablet-general-2") {
+    //    justify-content: flex-start;
+    //}
+    //@include mq("tablet-general-2") {
+    //    justify-content: center;
+    //}
+    //@media only screen and (max-height: 700px) {
+    //    justify-content: flex-start;
+    //}
+}
+
+.main-intro__content {
+    position: relative;
+    z-index: 2;
+    //position: absolute;
+    //z-index: 1;
+    //top: 0;
+    //right: 0;
+    max-width: 541px;
+    margin-top: 330px;
+    margin-right: 140px;
+    @media screen and (min-width: 1024px) and (max-height: 800px) {
+        margin-top: 0;
+    }
+    @include mq('tablet-1100') {
+        margin-right: 40px;
+    }
+    @include mq('tablet-1015') {
+        margin-right: 24px;
+        max-width: 400px;
+        margin-top: 330px;
+    }
+    @include mq('tablet-850') {
+        max-width: 325px;
+    }
+    @include mq('tablet-760') {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 24px 30px;
+        max-width: unset;
+        margin-top: 0;
+        margin-right: 0;
+        width: 100%;
+        //margin: 0 auto;
+    }
+}
+
+.main-intro__title {
+    width: fit-content;
+    //margin-top: 43px;
+    margin-bottom: 15px;
+    @include font(6.4rem, 125%, false, 700);
+    @include mq('tablet-1015') {
+        @include font(4.8rem);
+    }
+    @include mq('tablet-850') {
+        @include font(3.6rem);
+    }
+    @include mq('tablet-760') {
+        text-align: center;
+        color: $color-primary;
+        margin-bottom: 5px;
+    }
+    //@include text-gradient-color(linear-gradient(90deg, #004C6E 0%, #6A9FBC 100%));
+    //@include mq("tablet-general-2") {
+    //    //margin-top: 200px;
+    //}
+    //@include mq("tablet-general-3") {
+    //    margin-top: 97px;
+    //    margin-bottom: 8px;
+    //    @include font(4.5rem, 5.5rem);
+    //}
+    //@media only screen and (max-height: 700px) {
+    //    margin-top: 97px;
+    //}
+}
+
+.main-intro__description {
+    margin-bottom: 70px;
+    @include font(4rem, 125%, false, 400);
+    @include mq('tablet-1015') {
+        @include font(3rem);
+    }
+    @include mq('tablet-850') {
+        @include font(2.4rem);
+    }
+    @include mq('tablet-760') {
+        margin-bottom: 40px;
+        text-align: center;
+        color: $color-primary;
+        max-width: 325px;
+    }
+    //@include mq("tablet-general-3") {
+    //    max-width: 340px;
+    //    margin-bottom: 30px;
+    //    @include font(1.4rem, 1.8rem);
+    //}
+    //@include mq("tablet-s") {
+    //    max-width: 270px;
+    //}
+}
+
+//.main-intro__link-btn-container {
+//    @include mq("tablet-general-3") {
+//        align-self: center;
+//    }
+//    @include mq("tablet-s") {
+//        display: none;
+//    }
+//}
+
+.main-intro__video-btn {
+    width: 224px;
+    @include mq('tablet-760') {
+        width: 178px;
+    }
+    //@include mq("tablet-general-3") {
+    //    align-self: center;
+    //}
+    //@include mq("tablet-s") {
+    //    width: 162px;
+    //    padding: 7px 25px;
+    //    @include font(1.1rem, 1.4rem);
+    //    text-align: center;
+    //    white-space: initial;
+    //}
+}
+
+//.main-intro__link-btn-mobile-container {
+//    display: none;
+//    @include mq("tablet-s") {
+//        display: block;
+//        align-self: center;
+//    }
+//}
+
+.main-intro__link-btn-mobile {
+    width: 162px;
+    padding: 7px 25px;
+    @include font(1.1rem, 1.4rem);
+    text-align: center;
+    white-space: initial;
+}
+
+.main-intro__mobile-img {
+    //display: none;
+    height: 100%;
+    //display: none;
+    //@include mq("tablet-general-3") {
+    //    display: block;
+    //    width: 80%;
+    //    margin-bottom: 30px;
+    //    align-self: center;
+    //}
+    //@include mq("tablet-s") {
+    //    width: 90%;
+    //}
+    //@include mq("mobile-xl") {
+    //    max-width: 345px;
+    //}
+    //@include mq("mobile-l") {
+    //  display: none;
+    //}
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: left;
+        //@media screen and (min-width: 3450px) {
+        //    object-fit: cover;
+        //}
+        @media screen and (min-width: 1921px) {
+            object-position: center;
+        }
+        @include mq('tablet-1100') {
+            object-position: -220px center;
+        }
+        @include mq('tablet-1015') {
+            object-position: -170px center;
+        }
+        @include mq('tablet-760') {
+            height: 450px;
+            object-position: left center;
+        }
+        @include mq('mobile-500') {
+            height: auto;
+            object-fit: unset;
+        }
+    }
+}
+
+//.main-intro__small-mobile-img {
+//  display: none;
+//  @include mq("mobile-l") {
+//    display: block;
+//    margin-bottom: 30px;
+//    align-self: center;
+//    max-width: 345px;
+//  }
+//}
+
+
+.main-intro__wave-img-wrapper {
+    position: absolute;
+    bottom: -9px;
+    width: 100%;
+
+
+    &-desk {
+        @include mq('tablet-760') {
+            display: none;
+        }
+    }
+
+    &-mob {
+        top: -195px;
+        display: none;
+        @include mq('tablet-760') {
+            display: block;
+        }
+        @include mq('mobile-450') {
+            //top: -100px;
+        }
+    }
+
+    .main-intro__wave-img-container {
+        width: 110%;
+        left: -5%;
+        //@include mq("tablet-general-2") {
+        //    width: 100%;
+        //    left: 0;
+        //}
+    }
+
+    .main-intro__wave-img-mob,
+    .main-intro__wave-img {
+        width: 100%;
+        height: 350px;
+        //background-image: url("../../src/assets/images/baltika/top-wave-img.png");
+        background-repeat: repeat;
+        background-position: 0 center;
+        //background-size: 1950px auto;
+        position: absolute;
+        // z-index: 8;
+        bottom: 0;
+        left: 0;
+        @include mq('tablet-760') {
+            height: 200px;
+            //background-color: red;
+            background-size: cover;
+            background-position: center bottom -15px;
+            background-repeat: no-repeat;
+        }
+        @include mq('mobile-450') {
+            //height: 100px;
+            background-size: contain;
+            background-position: bottom;
+        }
+        // @include mq("custom", min, 1921px) {
+        //   background-size: cover;
+        // }
+        // @include mq("mobile-xl") {
+        //   height: 665px;
+        //   background-image: url("/assets/images/main_bg_m.jpg");
+        //   background-size: cover;
+        // }
+        //@include mq("custom", min, 1921px) {
+        //    background-size: cover;
+        //    background-position: top;
+        //}
+        //@include mq("tablet-general-2") {
+        //    background-image: url("/assets/images/welldone_bg_new_m_fnl.png");
+        //    background-size: cover;
+        //    background-position-y: 0px;
+        //    // height: 330px;
+        //    height: 512px;
+        //}
+        //@include mq("tablet-general-4") {
+        //    height: 400px;
+        //    background-position-y: 90px;
+        //}
+    }
+}

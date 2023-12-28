@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvalues=self.webpackChunkvalues||[]).push([[18],{18:function(s,e,a){s.exports=a.p+"assets/images/bottom-wave-img-m-2.png"}}]);

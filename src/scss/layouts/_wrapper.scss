@@ -1,0 +1,26 @@
+.wrapper {
+    max-width: $content-width;
+    margin: 0 auto;
+    //padding: 0 240px;
+    @include mq("desktop-xl") {
+        padding: 0 80px;
+    }
+    @include mq("tablet-general") {
+        padding: 0 40px;
+    }
+    @include mq("tablet-general-2") {
+        padding: 0 15px;
+    }
+
+    //@include mq("tablet-l") {
+    //  padding: 0 16px;
+    //}
+
+    // @include media-tablet-large {
+    //   padding: 0 20px;
+    // }
+
+    &--without-paddings {
+        padding: 0;
+    }
+}

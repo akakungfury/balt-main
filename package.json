@@ -1,0 +1,47 @@
+{
+    "name": "values",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "NODE_ENV=development webpack serve --open",
+        "dev": "NODE_ENV=development webpack",
+        "build": "NODE_ENV=production webpack"
+    },
+    "browserslist": [
+        "last 2 versions",
+        "> 1%",
+        "IE 10"
+    ],
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.18.2",
+        "@babel/preset-env": "^7.18.2",
+        "babel-loader": "^8.2.5",
+        "css-loader": "^6.7.1",
+        "file-loader": "^6.2.0",
+        "html-loader": "^3.1.0",
+        "html-webpack-plugin": "^5.5.0",
+        "mini-css-extract-plugin": "^2.6.0",
+        "postcss": "^8.4.14",
+        "postcss-loader": "^7.0.0",
+        "postcss-preset-env": "^7.7.1",
+        "pug": "^2.0.4",
+        "pug-loader": "^2.4.0",
+        "sass": "^1.52.2",
+        "sass-loader": "^13.0.0",
+        "style-loader": "^3.3.1",
+        "webpack": "^5.73.0",
+        "webpack-cli": "^4.9.2",
+        "webpack-dev-server": "^4.9.1"
+    },
+    "dependencies": {
+        "normalize-scss": "^8.0.0",
+        "aos": "^3.0.0-beta.6",
+        "parallax-js": "^3.1.0",
+        "@studio-freight/lenis": "^1.0.29",
+        "swiper": "^11.0.5"
+    }
+}

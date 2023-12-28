@@ -1,0 +1,41 @@
+.logo {
+    width: 100%;
+    max-width: 69px;
+
+    &.one {
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        fill: transparent;
+        //fill: #BFFFA1;
+        //stroke: #E39E5F;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: svg-stroke 2s ease-in forwards 1s;
+    }
+
+    &.two {
+        opacity: 0;
+        animation: opacity-1 0.25s ease-in forwards 1.5s;
+    }
+
+}
+
+@keyframes svg-stroke {
+    99% {
+        stroke-dashoffset: 0;
+        ////fill: #E39E5F;
+        //opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes opacity-1 {
+    100% {
+        opacity: 1;
+    }
+}
+

@@ -1,0 +1,52 @@
+$color-light: #ffffff;
+$color-dark: #000;
+$color-dark-2: #232323;
+$color-dark-3: #2F2F2F;
+$color-grey: #aeaeb6;
+$color-grey-2: #6F6F6F;
+
+$color-primary: #011B50;
+$color-secondary: rgba(0, 76, 110, 0.05);
+// $color-secondary: #2D2D2D;
+
+$text-color-dark: #454545;
+
+$primary-font: "PT Sans";
+//$additional-font: "Mulish";
+
+$content-width: 1920px;
+
+$breakpoints: (
+    "mobile-340": 340px,
+    "mobile-360": 360px,
+    "mobile-375": 375px,
+    "mobile-380": 380px,
+    "mobile-390": 395px,
+    "mobile-395": 395px,
+    "mobile-405": 405px,
+    "mobile-430": 430px,
+    "mobile-450": 450px,
+    "mobile-500": 500px,
+    "tablet-580": 580px,
+    "tablet-760": 760px,
+    "tablet-768": 768px,
+    "tablet-850": 850px,
+    "tablet-1015": 1015px,
+    "tablet-1024": 1024px,
+    "tablet-1100": 1100px,
+    "tablet-1200": 1200px,
+    "desktop-1280": 1280px,
+    "desktop-1370": 1370px,
+    "desktop-1440": 1440px,
+    "desktop-1550": 1550px,
+    "desktop-1650": 1650px,
+    "desktop-1920": 1920px,
+);
+
+$z-indexes: (
+    "main": 0,
+    "header": 100,
+    "hamburger-menu": 200,
+    "body-overlay": 400,
+    "popup": 500,
+);
