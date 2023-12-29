@@ -99,9 +99,14 @@
     //z-index: 1;
     //top: 0;
     //right: 0;
-    max-width: 541px;
+    //max-width: 541px;
+    max-width: 635px;
     margin-top: 330px;
     margin-right: 140px;
+    @include mq('desktop-1440') {
+        margin-right: 70px;
+    }
+
     @media screen and (min-width: 1024px) and (max-height: 800px) {
         margin-top: 0;
     }
@@ -110,11 +115,13 @@
     }
     @include mq('tablet-1015') {
         margin-right: 24px;
-        max-width: 400px;
+        //max-width: 400px;
+        max-width: 475px;
         margin-top: 330px;
     }
     @include mq('tablet-850') {
-        max-width: 325px;
+        //max-width: 325px;
+        max-width: 380px;
     }
     @include mq('tablet-760') {
         display: flex;
@@ -172,7 +179,8 @@
         margin-bottom: 40px;
         text-align: center;
         color: $color-primary;
-        max-width: 325px;
+        //max-width: 325px;
+        max-width: 380px;
     }
     //@include mq("tablet-general-3") {
     //    max-width: 340px;

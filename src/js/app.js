@@ -130,7 +130,7 @@ window.addEventListener("load", () => {
         document.body.classList.add('lock-scroll');
         // !isTouchDeviceType && !communityArticlePage && lenis.stop()
         // !isTouchDeviceType && lenis.stop()
-        console.log(lenisInstance)
+        // console.log(lenisInstance)
         if (lenisInstance) {
             lenisInstance.stop()
         }
@@ -140,7 +140,7 @@ window.addEventListener("load", () => {
         document.body.classList.remove('lock-scroll');
         // !isTouchDeviceType && !communityArticlePage && lenis.start()
         // !isTouchDeviceType && lenis.start()
-        console.log(lenisInstance)
+        // console.log(lenisInstance)
         if (lenisInstance) {
             lenisInstance.start()
         }
@@ -202,7 +202,7 @@ window.addEventListener("load", () => {
     }
 
     openVideoPopupBtn.addEventListener('click', () => {
-        console.log("FIREDDD")
+        // console.log("FIREDDD")
         openPopup('video');
     })
 

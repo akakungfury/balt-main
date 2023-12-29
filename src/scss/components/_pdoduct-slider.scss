@@ -93,6 +93,7 @@
         }
 
         .product-slide__btn {
+            display: none !important;
             width: 224px;
             @include mq('tablet-1015') {
                 padding: 13px 14px 15px;

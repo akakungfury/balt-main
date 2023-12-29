@@ -20,6 +20,7 @@
 .footer__wrapper {
     display: flex;
     //align-items: center;
+    justify-content: center;
     gap: 100px;
     max-width: 1374px + 80px;
     padding: 0 40px;
@@ -41,6 +42,7 @@
     @include mq("tablet-850") {
         flex-direction: column;
         align-items: center;
+        justify-content: unset;
         gap: 25px;
     }
 }
@@ -131,8 +133,11 @@
         @include mq("tablet-1100") {
             @include font(2rem);
         }
-        @include mq("tablet-760") {
+        @include mq("tablet-850") {
             text-align: center;
+        }
+        @include mq("tablet-760") {
+            //text-align: center;
             @include font(1.4rem);
         }
         @include mq('mobile-450') {
