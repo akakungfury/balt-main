@@ -9,6 +9,8 @@
             background-color: #0a001f;
             border-radius: 18px;
             overflow: hidden;
+            isolation: isolate;
+            transform: translateZ(0);
 
             iframe {
                 position: absolute;

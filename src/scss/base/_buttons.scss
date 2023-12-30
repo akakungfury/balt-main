@@ -126,6 +126,8 @@
         height: 102%;
         background-color: #E39E5F;
         @include transition-multi(opacity, background-color);
+        isolation: isolate;
+        transform: translateZ(0);
         //background: linear-gradient(90deg, #E39E5F 0%, #EFBB6D 36.38%, #FBD77A 72.4%);
     }
 
@@ -148,6 +150,8 @@
     &--gradient {
         border: none;
         background: linear-gradient(90deg, #E39E5F 0%, #EFBB6D 36.38%, #FBD77A 72.4%);
+        isolation: isolate;
+        transform: translateZ(0);
 
         //&:focus,
         &:focus-visible {

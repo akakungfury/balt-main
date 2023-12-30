@@ -161,6 +161,8 @@
     background-position: left 200px top -70px;
     // background-size: 1800px 2308px;
     background-size: 1500px 1923px;
+    //isolation: isolate;
+    //transform: translateZ(0);
 
     .popup__form-container {
         overflow: scroll;
@@ -283,7 +285,7 @@
     padding: 10px;
 
     @include transition-fast();
-    @include mq("mobile-500") {
+    @include mq("tablet-1100") {
         //right: 15px;
         //top: 15px;
 
@@ -321,11 +323,11 @@
         width: 40px;
         height: 40px;
         background-image: url("../../src/assets/images/baltika/cross.svg");
-        background-size: 80%;
-        @include mq("mobile-500") {
+        background-size: 60%;
+        @include mq("tablet-1100") {
             width: 30px;
             height: 30px;
-            background-size: 70%;
+            background-size: 60%;
         }
     }
 }
